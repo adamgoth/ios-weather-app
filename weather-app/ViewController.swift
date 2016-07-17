@@ -7,15 +7,25 @@
 //
 
 import UIKit
-import MapKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
+    //hard code coordinates for now
+    let city: Location = Location(location: CLLocation.init(latitude: 45, longitude: 45))
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        locationManager.delegate = self
+        locationManager.distanceFilter = kCLDistanceFilterNone
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+
+        city.downloadWeatherDetails { () -> () in
+
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -24,11 +34,18 @@ class ViewController: UIViewController {
     
     func locationAuthStatus() {
         if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
-            print(MKUserLocation)
+            print()
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
     }
-
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.locationManager.stopUpdatingLocation()
+        let userLocation = locations.last
+        let longitude = userLocation!.coordinate.longitude
+        let latitude = userLocation!.coordinate.latitude
+        
+        }
 }
 
