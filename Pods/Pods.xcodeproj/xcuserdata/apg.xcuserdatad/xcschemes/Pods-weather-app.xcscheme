@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F9F47F4C1D3BD21900B57282"
-               BuildableName = "weather-app.app"
-               BlueprintName = "weather-app"
-               ReferencedContainer = "container:weather-app.xcodeproj">
+               BlueprintIdentifier = "D36EB95CA9B127DAA26EE474F0F502FB"
+               BuildableName = "Pods_weather_app.framework"
+               BlueprintName = "Pods-weather-app"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F9F47F4C1D3BD21900B57282"
-            BuildableName = "weather-app.app"
-            BlueprintName = "weather-app"
-            ReferencedContainer = "container:weather-app.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -51,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F9F47F4C1D3BD21900B57282"
-            BuildableName = "weather-app.app"
-            BlueprintName = "weather-app"
-            ReferencedContainer = "container:weather-app.xcodeproj">
+            BlueprintIdentifier = "D36EB95CA9B127DAA26EE474F0F502FB"
+            BuildableName = "Pods_weather_app.framework"
+            BlueprintName = "Pods-weather-app"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F9F47F4C1D3BD21900B57282"
-            BuildableName = "weather-app.app"
-            BlueprintName = "weather-app"
-            ReferencedContainer = "container:weather-app.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
