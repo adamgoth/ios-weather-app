@@ -13,7 +13,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     //hard code coordinates for now
-    let city: Location = Location(location: CLLocation.init(latitude: 45, longitude: 45))
+    let city: Location = Location(location: CLLocation.init(latitude: 35, longitude: 139))
 
     override func viewDidLoad() {
         super.viewDidLoad()
