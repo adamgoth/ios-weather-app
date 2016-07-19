@@ -11,24 +11,33 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
-    let locationManager = CLLocationManager()
+    //outlets
+    @IBOutlet weak var cityLbl: UILabel!
+    @IBOutlet weak var tempLbl: UILabel!
+    @IBOutlet weak var weatherDescLbl: UILabel!
+    @IBOutlet weak var windSpeedLbl: UILabel!
+    @IBOutlet weak var humidityLbl: UILabel!
+    @IBOutlet weak var weatherImg: UIImage!
+    
+    //let locationManager = CLLocationManager()
+
     //hard code coordinates for now
-    let city: Location = Location(location: CLLocation.init(latitude: 35, longitude: 139))
+    let userLocation: Location = Location(location: CLLocation.init(latitude: 35, longitude: 139))
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        locationManager.delegate = self
-        locationManager.distanceFilter = kCLDistanceFilterNone
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
+        //locationManager.delegate = self
+        //locationManager.distanceFilter = kCLDistanceFilterNone
+        //locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //locationManager.startUpdatingLocation()
 
-        city.downloadWeatherDetails { () -> () in
+        userLocation.downloadWeatherDetails { () -> () in
 
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    /*override func viewDidAppear(animated: Bool) {
         locationAuthStatus()
     }
     
@@ -46,6 +55,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let longitude = userLocation!.coordinate.longitude
         let latitude = userLocation!.coordinate.latitude
         
-        }
+        }*/
 }
 
