@@ -22,6 +22,41 @@ class Location {
     private var _windSpeed: String!
     private var _weatherDesc: String!
     
+    var city: String {
+        if _city == nil {
+            _city = ""
+        }
+        return _city
+    }
+    
+    var temp: String {
+        if _temp == nil {
+            _temp = ""
+        }
+        return _temp
+    }
+    
+    var humidity: String {
+        if _humidity == nil {
+            _humidity = ""
+        }
+        return _humidity
+    }
+    
+    var windSpeed: String {
+        if _windSpeed == nil {
+            _windSpeed = ""
+        }
+        return _windSpeed
+    }
+    
+    var weatherDesc: String {
+        if _weatherDesc == nil {
+            _weatherDesc = ""
+        }
+        return _weatherDesc
+    }
+    
     init(location: CLLocation) {
         self._latitude = location.coordinate.latitude
         self._longitude = location.coordinate.longitude
@@ -41,8 +76,9 @@ class Location {
                 
                 if let mainDict = dict["main"] as? Dictionary<String, AnyObject> {
                     
-                    if let temp = mainDict["temp"] as? Double {
-                        self._temp =  "\(temp)"
+                    if let tempK = mainDict["temp"] as? Double {
+                        let tempF = Int(round(tempK * (9.0/5.0) - 459.67))
+                        self._temp =  "\(tempF)°"
                         print(self._temp)
                     }
                     
@@ -60,12 +96,15 @@ class Location {
                 }
                 
                 if let windDict = dict["wind"] as? Dictionary<String, AnyObject> {
-                    if let windSpeed = windDict["speed"] as? Double {
-                        self._windSpeed = "\(windSpeed)"
+                    if let windSpeedDouble = windDict["speed"] as? Double {
+                        let windSpeedInt = Int(round(windSpeedDouble))
+                        self._windSpeed = "\(windSpeedInt)"
                         print(self._windSpeed)
                     }
                 }
             }
+            
+            completed()
         }
     }
 }

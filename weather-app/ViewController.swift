@@ -17,12 +17,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var weatherDescLbl: UILabel!
     @IBOutlet weak var windSpeedLbl: UILabel!
     @IBOutlet weak var humidityLbl: UILabel!
-    @IBOutlet weak var weatherImg: UIImage!
+    @IBOutlet weak var weatherImg: UIImageView!
     
     //let locationManager = CLLocationManager()
 
     //hard code coordinates for now
-    let userLocation: Location = Location(location: CLLocation.init(latitude: 35, longitude: 139))
+    let userLocation: Location = Location(location: CLLocation.init(latitude: 39.74, longitude: -104.98))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +33,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         //locationManager.startUpdatingLocation()
 
         userLocation.downloadWeatherDetails { () -> () in
-
+            self.updateUI()
         }
+    }
+    
+    func updateUI() {
+        cityLbl.text = userLocation.city.uppercaseString
+        tempLbl.text = userLocation.temp
+        windSpeedLbl.text = userLocation.windSpeed
+        humidityLbl.text = userLocation.humidity
+        weatherImg.image = UIImage(named: userLocation.weatherDesc)
     }
     
     /*override func viewDidAppear(animated: Bool) {
