@@ -17,20 +17,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var weatherDescLbl: UILabel!
     @IBOutlet weak var windSpeedLbl: UILabel!
     @IBOutlet weak var humidityLbl: UILabel!
+    @IBOutlet weak var datetimeLbl: UILabel!
     @IBOutlet weak var weatherImg: UIImageView!
     
-    //let locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
 
     //hard code coordinates for now
     let userLocation: Location = Location(location: CLLocation.init(latitude: 39.74, longitude: -104.98))
+    //var userLocation: Location
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //locationManager.delegate = self
-        //locationManager.distanceFilter = kCLDistanceFilterNone
-        //locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        locationManager.distanceFilter = kCLDistanceFilterNone
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
 
         userLocation.downloadWeatherDetails { () -> () in
             self.updateUI()
@@ -42,8 +44,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         tempLbl.text = userLocation.temp
         windSpeedLbl.text = userLocation.windSpeed
         humidityLbl.text = userLocation.humidity
+        datetimeLbl.text = NSDate().dayMonthTime()?.uppercaseString
         weatherImg.image = UIImage(named: userLocation.weatherDesc)
     }
+    
+    
     
     /*override func viewDidAppear(animated: Bool) {
         locationAuthStatus()
@@ -59,10 +64,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.locationManager.stopUpdatingLocation()
-        let userLocation = locations.last
-        let longitude = userLocation!.coordinate.longitude
-        let latitude = userLocation!.coordinate.latitude
-        
-        }*/
+        let loc = locations.last
+        let longitude = loc!.coordinate.longitude
+        let latitude = loc!.coordinate.latitude
+        userLocation = Location(location: CLLocation.init(latitude: latitude, longitude: longitude))
+        print(latitude)
+        print(longitude)
+        }
+    */
+}
+
+extension NSDate {
+    func dayMonthTime() -> String? {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMMM d, h:mm a"
+        return dateFormatter.stringFromDate(self)
+    }
 }
 

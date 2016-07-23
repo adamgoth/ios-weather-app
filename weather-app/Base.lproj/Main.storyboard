@@ -21,8 +21,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HaL-k5-Eun">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-EY-zdv">
-                                        <rect key="frame" x="50" y="40" width="500" height="40"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-EY-zdv">
+                                        <rect key="frame" x="80" y="40" width="440" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="4CH-Eg-sd9">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -31,8 +31,8 @@
                                                     <constraint firstAttribute="height" constant="40" id="yNE-bA-WpD"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0W-bf-Jnt">
-                                                <rect key="frame" x="40" y="0.0" width="460" height="40"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="f0W-bf-Jnt">
+                                                <rect key="frame" x="40" y="0.0" width="400" height="40"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="33"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -117,18 +117,27 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oko-TB-NtZ">
+                                        <rect key="frame" x="284" y="85" width="32" height="15"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.81212764761655687" green="0.98638979012481065" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="zVw-U0-CCe" firstAttribute="centerX" secondItem="HaL-k5-Eun" secondAttribute="centerX" id="1Ei-ld-c9i"/>
                                     <constraint firstItem="zVw-U0-CCe" firstAttribute="top" secondItem="CFE-EY-zdv" secondAttribute="bottom" constant="20" id="4Kf-7b-add"/>
-                                    <constraint firstAttribute="trailing" secondItem="CFE-EY-zdv" secondAttribute="trailing" constant="50" id="Dor-s6-3Z6"/>
+                                    <constraint firstItem="zVw-U0-CCe" firstAttribute="top" secondItem="oko-TB-NtZ" secondAttribute="bottom" id="7VI-W6-iv7"/>
+                                    <constraint firstItem="oko-TB-NtZ" firstAttribute="top" secondItem="CFE-EY-zdv" secondAttribute="bottom" constant="5" id="920-dw-89C"/>
+                                    <constraint firstAttribute="trailing" secondItem="CFE-EY-zdv" secondAttribute="trailing" constant="80" id="Dor-s6-3Z6"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="ABD-7b-bpk" secondAttribute="trailing" id="GpL-cr-m0h"/>
                                     <constraint firstItem="ABD-7b-bpk" firstAttribute="top" secondItem="zVw-U0-CCe" secondAttribute="bottom" constant="20" id="LH3-dw-vvZ"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="ABD-7b-bpk" secondAttribute="bottom" constant="20" id="MUv-IA-bIV"/>
                                     <constraint firstItem="ABD-7b-bpk" firstAttribute="leading" secondItem="HaL-k5-Eun" secondAttribute="leadingMargin" id="TPd-VQ-fhe"/>
                                     <constraint firstItem="CFE-EY-zdv" firstAttribute="top" secondItem="HaL-k5-Eun" secondAttribute="top" constant="40" id="Xmf-fQ-LFP"/>
-                                    <constraint firstItem="CFE-EY-zdv" firstAttribute="leading" secondItem="HaL-k5-Eun" secondAttribute="leading" constant="50" id="iQc-1H-zDI"/>
+                                    <constraint firstItem="CFE-EY-zdv" firstAttribute="leading" secondItem="HaL-k5-Eun" secondAttribute="leading" constant="80" id="iQc-1H-zDI"/>
+                                    <constraint firstItem="oko-TB-NtZ" firstAttribute="centerX" secondItem="HaL-k5-Eun" secondAttribute="centerX" id="qS2-wh-yi6"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -142,6 +151,7 @@
                     </view>
                     <connections>
                         <outlet property="cityLbl" destination="f0W-bf-Jnt" id="QyU-jp-Mex"/>
+                        <outlet property="datetimeLbl" destination="oko-TB-NtZ" id="Wdv-3O-aiu"/>
                         <outlet property="humidityLbl" destination="gvm-H1-KFN" id="Ma4-fc-rVZ"/>
                         <outlet property="tempLbl" destination="8y8-8i-bPG" id="Sdh-ak-O8H"/>
                         <outlet property="weatherImg" destination="zVw-U0-CCe" id="N0b-T9-5Tf"/>
